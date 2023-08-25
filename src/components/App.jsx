@@ -17,17 +17,15 @@ const App = () => {
   const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index="/" element={HomePage} />
-          <Route path="/register" element={RegisterPage} />
-          <Route path="/login" element={LoginPage} />
-          <Route path="/contacts" element={ContactsPage} />
-          <Route path="*" element={<HomePage />} />
-        </Route>
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="signup" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };
 

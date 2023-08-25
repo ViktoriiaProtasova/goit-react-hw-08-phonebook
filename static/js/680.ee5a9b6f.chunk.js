@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[680],{680:function(e,o,n){n.r(o);var r=n(8619),t=n(184);o.default=function(){return(0,t.jsx)("div",{className:"ContactPhoneIconWrapper",children:(0,t.jsx)(r.Z,{color:"primary",sx:{fontSize:100}})})}}}]);
+//# sourceMappingURL=680.ee5a9b6f.chunk.js.map

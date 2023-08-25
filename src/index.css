@@ -13,8 +13,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 ul {
   padding-left: 0;
+}
+
+link {
+  text-decoration: none;
 }
 
 .formWrapper {
@@ -41,4 +46,9 @@ ul {
 
 .deleteContactBtn {
   margin: 10px 20px;
+}
+
+.ContactPhoneIconWrapper {
+  padding: 10rem 0;
+  text-align: center;
 }

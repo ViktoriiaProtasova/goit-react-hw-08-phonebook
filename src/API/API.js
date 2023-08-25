@@ -1,18 +1,33 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-axios.defaults.baseURL = 'https://64d7333b2a017531bc13083b.mockapi.io';
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
-export const getAllContacts = async () => {
-  const { data } = await axios('/contacts');
-  return data;
-};
+// export const signupUser = async credentials => {
+//   const { data } = await axios.post(`/users/signup`, credentials);
+//   return data;
+// };
 
-export const setContact = async credentials => {
-  const { data } = await axios.post(`/contacts`, credentials);
-  return data;
-};
+// export const loginUser = async credentials => {
+//   const { data } = await axios.post(`/users/login`, credentials);
+//   return data;
+// };
 
-export const removeContact = async id => {
-  const { data } = await axios.delete(`/contacts/${id}`);
-  return data;
-};
+// export const getCurrentUser = async () => {
+//   const { data } = await axios('/users/current');
+//   return data;
+// };
+
+// export const getAllUserContacts = async () => {
+//   const { data } = await axios('/contacts');
+//   return data;
+// };
+
+// export const setUserContacts = async () => {
+//   const { data } = await axios.post('/contacts');
+//   return data;
+// };
+
+// export const removeContact = async id => {
+//   const { data } = await axios.delete(`/contacts/${id}`);
+//   return data;
+// };

@@ -1,36 +1,32 @@
-import Form from './Form/Form';
-import ContactList from './Contacts/ContactList';
-import Filter from './Filter/Filter';
-import { fetchContacts } from 'redux/operations';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+// import { fetchContacts } from 'redux/operations';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+// import HomePage from 'pages/HomePage/HomePage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import Layout from '../Layout';
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
+  const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 24,
-        color: '#010101',
-      }}
-    >
-      <div className="formWrapper">
-        <h1>Phonebook</h1>
-        <Form />
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* <Route exact path="/" component={HomePage} /> */}
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/contacts" component={ContactsPage} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,12 +14,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 
-const pages = ['Contacts', 'Log In', 'Sign Up'];
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+const pages = ['Contacts', 'LogIn', 'SignUp'];
 const settings = ['Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = event => {
     setAnchorElNav(event.currentTarget);
@@ -42,11 +48,12 @@ function ResponsiveAppBar() {
           <ContactPhoneIcon
             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
           />
+
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/goit-react-hw-08-phonebook"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -91,7 +98,17 @@ function ResponsiveAppBar() {
             >
               {pages.map(page => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link
+                      to={
+                        page === 'Contacts'
+                          ? 'contacts'
+                          : `${page.toLowerCase()}`
+                      }
+                    >
+                      {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -103,7 +120,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href="/"
+            href="/goit-react-hw-08-phonebook"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -121,7 +138,14 @@ function ResponsiveAppBar() {
             {pages.map(page => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => {
+                  handleCloseNavMenu();
+                  if (page === 'Contacts') {
+                    navigate('/contacts');
+                  } else {
+                    navigate(`/${page.toLowerCase()}`);
+                  }
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

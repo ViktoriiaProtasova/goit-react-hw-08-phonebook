@@ -1,8 +1,11 @@
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+
 const HomePage = () => {
   return (
-    <div>
-      <img src="../../Images/icon-2430270_1280.png" alt="" />
+    <div className="ContactPhoneIconWrapper">
+      <ContactPhoneIcon color="primary" sx={{ fontSize: 100 }} />
     </div>
   );
 };
+
 export default HomePage;

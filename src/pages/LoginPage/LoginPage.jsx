@@ -1,27 +1,18 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import LoginForm from 'components/LoginForm/LoginForm';
 
 export default function LoginPage() {
   return (
-    <Box
-      component="form"
+    <Container
+      maxWidth="sm"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        marginTop: 5,
+        marginBottom: 5,
+        textAlign: 'center',
       }}
-      noValidate
-      autoComplete="off"
     >
-      <div>
-        <TextField required id="outlined-required" label="Log In" type="text" />
-        <TextField
-          required
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-      </div>
-    </Box>
+      <h1>Hello, sign in</h1>
+      <LoginForm />
+    </Container>
   );
 }

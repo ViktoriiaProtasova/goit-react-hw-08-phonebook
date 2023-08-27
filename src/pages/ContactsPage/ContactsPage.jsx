@@ -1,16 +1,24 @@
-import Form from '../../components/Form/Form';
+import Form from '../../components/ContactsForm/Form';
 import ContactList from '../../components/Contacts/ContactList';
-import Filter from '../../components/Filter/Filter';
+import Filter from '../../components/ContactsFilter/Filter';
+import Container from '@mui/material/Container';
 
 const ContactsPage = () => {
   return (
-    <div className="formWrapper">
+    <Container
+      maxWidth="sm"
+      sx={{
+        marginTop: 5,
+        marginBottom: 5,
+        textAlign: 'center',
+      }}
+    >
       <h1>Phonebook</h1>
       <Form />
       <h2>Contacts</h2>
       <Filter />
       <ContactList />
-    </div>
+    </Container>
   );
 };
 export default ContactsPage;

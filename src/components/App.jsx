@@ -1,31 +1,63 @@
-// import { fetchContacts } from 'redux/operations';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import HomePage from 'pages/HomePage/HomePage';
-import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import LoginPage from 'pages/LoginPage/LoginPage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import { useDispatch } from 'react-redux';
 import Layout from '../Layout';
+import { authOperations } from '../redux/auth';
+import { PrivatRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
+import { ToastContainer } from 'react-toastify';
+
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-  const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="signup" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="contacts" element={<ContactsPage />} />
-        <Route path="*" element={<HomePage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="register"
+            element={
+              <PublicRoute component={RegisterPage} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute component={LoginPage} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivatRoute component={ContactsPage} redirectTo="/login" />
+            }
+          />
+          <Route path="*" element={<HomePage />} />
+        </Route>
+      </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+    </>
   );
 };
 

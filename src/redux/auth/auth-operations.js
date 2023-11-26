@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -61,6 +61,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
+
     return data;
   } catch (error) {
     toast.error('Oops!😕Are You sure about this data?', {
@@ -73,6 +74,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -92,6 +94,7 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });

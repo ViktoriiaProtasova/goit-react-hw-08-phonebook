@@ -1,5 +1,5 @@
-import Container from '@mui/material/Container';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import Container from '@mui/material/Container';
 
 const HomePage = () => {
   return (

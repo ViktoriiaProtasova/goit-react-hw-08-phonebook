@@ -1,6 +1,6 @@
 # Phonebook App
 
-The “Contact Book” program has been implemented with the possibility of
+The “Phonebook App” program has been implemented with the possibility of
 registration, login, and user update, as well as working with a private
 collection of contacts — added routing with the React Router library.
 

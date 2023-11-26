@@ -61,7 +61,6 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
-
     return data;
   } catch (error) {
     toast.error('Oops!😕Are You sure about this data?', {
@@ -74,7 +73,6 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
-
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -94,7 +92,6 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
       progress: undefined,
       theme: 'colored',
     });
-
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -108,7 +105,6 @@ const fetchCurrentUser = createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
@@ -126,4 +122,5 @@ const operations = {
   logIn,
   fetchCurrentUser,
 };
+
 export default operations;

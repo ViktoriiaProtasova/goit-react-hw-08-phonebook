@@ -78,6 +78,7 @@ export default function RegisterForm() {
             type="password"
             name="password"
             placeholder="Password"
+            autoComplete="current password"
             value={password}
             onChange={handleChange}
           />

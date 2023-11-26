@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "phonebook-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ViktoriiaProtasova.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://ViktoriiaProtasova.github.io/phonebook-project/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -30,7 +30,6 @@
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
-    
   },
   "scripts": {
     "start": "react-scripts start",

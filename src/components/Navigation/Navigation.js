@@ -116,7 +116,7 @@ function Navigation() {
             variant="h5"
             noWrap
             component="a"
-            href="/goit-react-hw-08-phonebook"
+            href="/phonebook-project"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

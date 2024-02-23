@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Layout from '../Layout';
 import { authOperations } from '../redux/auth';
-import { PrivatRoute } from './PrivateRoute';
+import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { ToastContainer } from 'react-toastify';
 
@@ -39,7 +39,7 @@ const App = () => {
           <Route
             path="contacts"
             element={
-              <PrivatRoute component={ContactsPage} redirectTo="/login" />
+              <PrivateRoute component={ContactsPage} redirectTo="/login" />
             }
           />
           <Route path="*" element={<HomePage />} />

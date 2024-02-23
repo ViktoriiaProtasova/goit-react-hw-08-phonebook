@@ -54,7 +54,7 @@ export default function LoginForm() {
             required
             autoFocus
             placeholder="Email"
-            autoComplete="current email"
+            autoComplete="email"
             type="email"
             name="email"
             value={email}
@@ -65,6 +65,7 @@ export default function LoginForm() {
             type="password"
             name="password"
             placeholder="Password"
+            autoComplete="current-password"
             value={password}
             onChange={handleChange}
           />

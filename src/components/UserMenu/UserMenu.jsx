@@ -32,7 +32,7 @@ function UserMenu() {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="User menu">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" sx={{ bgcolor: green[500] }}>
+          <Avatar alt="User avatar" sx={{ bgcolor: green[500] }}>
             <AccountCircleIcon />
           </Avatar>
         </IconButton>

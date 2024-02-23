@@ -1,8 +1,13 @@
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { Button, Stack, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 
 const HomePage = () => {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+
   return (
     <Container
       maxWidth="sm"
@@ -49,7 +54,6 @@ const HomePage = () => {
         />
         Phonebook
       </Typography>
-
       <Typography marginBottom={4}>
         Supports all necessary operations with the contact collection, as well
         as user registration, login and update.
@@ -59,12 +63,22 @@ const HomePage = () => {
         spacing={{ xs: 1, sm: 2, md: 4 }}
         justifyContent="center"
       >
-        <Button href="/phonebook-project/login" variant="contained">
-          Login
-        </Button>
-        <Button href="/phonebook-project/register" variant="outlined">
-          Register
-        </Button>
+        {isRefreshing ? (
+          <>{null}</>
+        ) : (
+          <>
+            {!isLoggedIn && (
+              <>
+                <Button href="/phonebook-project/login" variant="contained">
+                  Login
+                </Button>
+                <Button href="/phonebook-project/register" variant="outlined">
+                  Register
+                </Button>
+              </>
+            )}
+          </>
+        )}
       </Stack>
     </Container>
   );

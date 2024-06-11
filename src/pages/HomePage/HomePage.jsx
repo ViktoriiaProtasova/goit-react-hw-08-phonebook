@@ -38,7 +38,7 @@ const HomePage = () => {
             sm: '3rem',
             md: '4rem',
             lg: '5rem',
-            xl: '6rem',
+            xl: '5rem',
           },
         }}
       >

@@ -20,7 +20,7 @@ const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/signup', credentials);
       token.set(data.token);
-      toast.success(`😃 Wellcome! ${data.user.name}`, {
+      toast.success(`😃 Welcome! ${data.user.name}`, {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
